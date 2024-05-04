@@ -7,5 +7,6 @@ public class CubeColor
 {
 	public Color mainColor;
 	public Color lineColor;
+	//PlayerManagerø° ¿÷¿Ω
 	public CubeColorType color = CubeColorType.Normal;
 }

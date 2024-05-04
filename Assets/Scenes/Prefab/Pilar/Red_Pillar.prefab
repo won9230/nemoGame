@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9090126739224297876}
   - component: {fileID: 8898718365524750488}
   - component: {fileID: 8630154102780000803}
-  - component: {fileID: 7004613029868727910}
   m_Layer: 0
   m_Name: Red_Pillar
   m_TagString: Untagged
@@ -163,19 +162,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1}
   m_EdgeRadius: 0
---- !u!114 &7004613029868727910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 235835964372629547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bbe9abbe620924bb8a7c7d09980d45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pilar_color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1885995097062541665
 GameObject:
   m_ObjectHideFlags: 0
