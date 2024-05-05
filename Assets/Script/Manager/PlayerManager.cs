@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,15 +18,17 @@ public class PlayerManager : MonoBehaviour
 {
 	private Vector3 moveDirectuon;
 	private RaycastHit2D hit;
-	public SpriteRenderer spriteRenderer;
-	public SpriteRenderer playerBody;
+	[HideInInspector] public SpriteRenderer spriteRenderer;
+	[HideInInspector] public SpriteRenderer playerBody;
+	public GameObject cubePrefab;
 	public Queue<CubeColor> cubeColors = new Queue<CubeColor>();
-	
+
 	[SerializeField] private float moveSpeed = 4f;
 	[SerializeField] private float jumpForce = 10f;
 	[SerializeField] private float maxJumpTime = 2f;
 
 	private Rigidbody2D rb;
+
 	private bool isJumping = false;
 	private bool isReadyJump = false;
 	private float jumpTime = 0f;
@@ -38,30 +41,28 @@ public class PlayerManager : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		spriteRenderer.color = playerColor;
 		playerBody = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
 	}
 
 	private void Update()
 	{
-		//transform.rotation = Quaternion.LookRotation(moveDirectuon);
 		transform.Translate(moveDirectuon * Time.deltaTime * moveSpeed);
-
-
 	}
 	private void FixedUpdate()
 	{
 		CheckGround();
 	}
 
-	//input System Move ¿Ã∫•∆Æ
+	//input System (Move)
 	public void OnMove(InputAction.CallbackContext context)
 	{
 		Vector2 input = context.ReadValue<Vector2>();
 		moveDirectuon = new Vector2(input.x, input.y);
 	}
-	//input System Jump ¿Ã∫•∆Æ
+	//input System (Jump) 
 	public void OnJump(InputAction.CallbackContext context)
 	{
-		if(context.started && !isJumping && !isReadyJump)	//¥≠∑∂¿ª ãö
+		if(context.started && !isJumping && !isReadyJump)	
 		{
 			isJumping = true;
 			isReadyJump = true;
@@ -72,18 +73,22 @@ public class PlayerManager : MonoBehaviour
 		{
 			Jump();
 		}
-		else if (context.canceled && isJumping) //«ÿ¡¶µ…∂ß
+		else if (context.canceled && isJumping) 
 		{
 			isJumping = false;
 		}
 	}
+	public void OnChangeColor(InputAction.CallbackContext context)
+	{
 
-	//¡°«¡
+	}
+
+	//Ï†êÌîÑ
 	private void Jump()
 	{
 		rb.velocity = new Vector2(rb.velocity.x, jumpForce + (jumpTime * maxJumpTime));
 	}
-	//πŸ¥⁄ √º≈©
+	//Î∞îÎã•Ï≤¥ÌÅ¨
 	private void CheckGround()
 	{
 		hit = Physics2D.Raycast(transform.position, new Vector3(0, -1f, 0), 0.7f, LayerMask.GetMask("Ground"));
@@ -107,9 +112,9 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	//≈•ø° ≈•∫Í ¡§∫∏∏¶ ≥÷¥¬¥Ÿ
-	private void InQueueCube()
+	//ÌÅêÏóê ÎÑ£Í∏∞
+	public void InQueueCube(CubeColor _cubeColor)
 	{
-
+		cubeColors.Enqueue(_cubeColor);
 	}
 }
