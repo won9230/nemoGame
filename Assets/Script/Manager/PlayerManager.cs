@@ -26,12 +26,13 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField] private float moveSpeed = 4f;
 	[SerializeField] private float jumpForce = 10f;
 	[SerializeField] private float maxJumpTime = 2f;
+	private float jumpTime = 0f;
 
 	private Rigidbody2D rb;
 
 	private bool isJumping = false;
 	private bool isReadyJump = false;
-	private float jumpTime = 0f;
+	public int queueCount = 0;
 
 	public Color playerColor = new Color(0.7f, 0.7f, 0.7f);
 
@@ -80,7 +81,11 @@ public class PlayerManager : MonoBehaviour
 	}
 	public void OnChangeColor(InputAction.CallbackContext context)
 	{
-
+		//	PlayerManager playerManager = _gameObject.GetComponent<PlayerManager>();
+		if (context.started)
+		{
+			OutQueueCube();	
+		}
 	}
 
 	//점프
@@ -116,5 +121,17 @@ public class PlayerManager : MonoBehaviour
 	public void InQueueCube(CubeColor _cubeColor)
 	{
 		cubeColors.Enqueue(_cubeColor);
+	}
+
+	public void OutQueueCube()
+	{
+		if(cubeColors.Count > 0)
+		{
+			CubeColor color = cubeColors.Dequeue();
+			playerBody.color = color.mainColor;
+			spriteRenderer.color = color.lineColor;
+			UIManager.instance.DeleteCubeUI();
+			queueCount--;
+		}
 	}
 }

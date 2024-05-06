@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -354,6 +354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 0}
+  cubePrefab: {fileID: 5519394388436827533, guid: 09c2d22974fee8442ae72bcd301ef5d5, type: 3}
+  cubes: []
+  cubeCount: 10
 --- !u!1 &527524677
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +516,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677533222}
   m_CullTransparentMesh: 1
+--- !u!114 &870288098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7064129468695617016, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+  m_PrefabInstance: {fileID: 2942307427433985409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d297a07aa8e7e47851806d7f81ca03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &904965773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,6 +1308,46 @@ PrefabInstance:
     - target: {fileID: 5558786701504047866, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 23a1feed-0dfa-487b-9f74-b41d74b313d2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: PlayerActions/ChageColor[/Keyboard/z]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 870288098}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChangeColor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702651708173958585, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7064129468695617016, guid: 66000ea4efcc0834299868d40ba6691d, type: 3}
       propertyPath: cubePrefab

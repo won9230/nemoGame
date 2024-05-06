@@ -27,8 +27,6 @@ public class Pilar : MonoBehaviour
 	//	playerManager.spriteRenderer.color = _lineColor;
 	//}
 
-
-
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player"))
@@ -36,7 +34,14 @@ public class Pilar : MonoBehaviour
 			//ChangeColor(collision.gameObject, pilar_CubeColor.lineColor, pilar_CubeColor.mainColor);
 			PlayerManager playerManager = collision.GetComponent<PlayerManager>();
 			playerManager.InQueueCube(pilar_CubeColor);
-			UIManager.instance.MakeCubeUI(playerManager.cubePrefab, pilar_CubeColor);
+			UIManager.instance.MakeCubeUI(pilar_CubeColor, playerManager.queueCount);
+			if (playerManager.queueCount >= 10)
+				playerManager.queueCount = 0;
+			else
+			{
+				playerManager.queueCount++;
+				Debug.Log(playerManager.queueCount);
+			}
 		}
 	}
 }
